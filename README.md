@@ -2,8 +2,8 @@
 Project_2 Gaming Web API
 
 Group Members: 
-Davian Ramsay
-Blake Drost
-Austin Towler
-Tyler White
-Cory Tinsley
+Davian Ramsay,
+Blake Drost,
+Austin Towler,
+Tyler White,
+Cory Tinsley,
