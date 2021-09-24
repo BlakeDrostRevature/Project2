@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmokeApp", "SmokeApp\SmokeApp.csproj", "{45374888-1938-4826-9DE1-3E0236B9AEA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmokeApp", "SmokeApp\SmokeApp.csproj", "{45374888-1938-4826-9DE1-3E0236B9AEA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P2_Group3_SmokeApp_Storage", "P2_Group3_SmokeApp_Storage\P2_Group3_SmokeApp_Storage.csproj", "{66EDF81D-DDA7-488A-B2F6-2CF126CB37A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P2_Group3_SmokeApp_Domain", "P2_Group3_SmokeApp_Domain\P2_Group3_SmokeApp_Domain.csproj", "{F018D088-0541-4CD3-AB2E-049CB210E3BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P2_Group3_SmokeApp_AngularFE", "P2_Group3_SmokeApp_AngularFE\P2_Group3_SmokeApp_AngularFE.csproj", "{78D6E702-546A-4074-88BE-72DE78B70402}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{45374888-1938-4826-9DE1-3E0236B9AEA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45374888-1938-4826-9DE1-3E0236B9AEA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45374888-1938-4826-9DE1-3E0236B9AEA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66EDF81D-DDA7-488A-B2F6-2CF126CB37A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66EDF81D-DDA7-488A-B2F6-2CF126CB37A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66EDF81D-DDA7-488A-B2F6-2CF126CB37A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66EDF81D-DDA7-488A-B2F6-2CF126CB37A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F018D088-0541-4CD3-AB2E-049CB210E3BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F018D088-0541-4CD3-AB2E-049CB210E3BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F018D088-0541-4CD3-AB2E-049CB210E3BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F018D088-0541-4CD3-AB2E-049CB210E3BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78D6E702-546A-4074-88BE-72DE78B70402}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78D6E702-546A-4074-88BE-72DE78B70402}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78D6E702-546A-4074-88BE-72DE78B70402}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78D6E702-546A-4074-88BE-72DE78B70402}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
