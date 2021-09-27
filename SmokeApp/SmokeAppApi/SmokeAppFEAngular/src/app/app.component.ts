@@ -15,10 +15,14 @@ export class AppComponent {
   }
 
   loginuser() {
-
+    this.logintrue = this.logintrue;
   }
 
   registeruser() {
+    this.registertrue = !this.registertrue;
+  }
+
+  viewdiscussions() {
 
   }
 

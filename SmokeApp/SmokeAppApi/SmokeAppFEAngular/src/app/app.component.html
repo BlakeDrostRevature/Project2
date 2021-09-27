@@ -5,8 +5,10 @@
 <p (click)="titleclicked(thispara.innerText)" #thispara>{{title}}</p>
 
 <h1>{{something}}</h1>
-<button (click)="loginuser()" routerLink="/login">Click me to login</button>
+<button class="login" (click)="loginuser()" routerLink="/login">Login</button>
 <br>
-<button (click)="registeruser()" routerLink="/register">Click me to register</button>
+<button class="register" (click)="registeruser()" routerLink="/register">Register</button>
 <br>
-<!-- <router-outlet></router-outlet> -->
+<button (click)="viewdiscussions()" routerLink="/discussions">View Discussions</button>
+
+<router-outlet></router-outlet>
