@@ -8,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class RegisterUserComponent implements OnInit {
 
   constructor() { }
+  username?: string;
+  fname?: string;
+  lname?: string;
+  DOB?: string;
+  password?: string;
 
   ngOnInit(): void {
   }

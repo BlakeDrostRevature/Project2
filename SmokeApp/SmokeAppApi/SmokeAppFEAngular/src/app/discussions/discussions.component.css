@@ -1,0 +1,36 @@
+body {
+  margin: 10px 60px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+h4 {
+  margin: 0;
+}
+
+p {
+  margin: 5px 0;
+}
+
+.main {
+  background-color: #f6f6ef;
+}
+
+.topbar {
+  background-color:firebrick;
+  padding: 0 40px;
+}
+row {
+  padding: 5px;
+}
+
+.bottom {
+  display: flex;
+}
+
+.timestamp {
+  padding-right: 10px;
+}

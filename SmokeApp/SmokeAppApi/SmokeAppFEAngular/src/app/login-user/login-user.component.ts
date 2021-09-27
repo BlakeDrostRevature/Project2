@@ -9,10 +9,11 @@ export class LoginUserComponent implements OnInit {
 
   constructor() { }
   @Input() logintrue: boolean = false;
-  fname: string = 'First Name';
-  lname: string = 'Last Name';
-
-
+  username?: string;
+  password?: string;
+  // fname?: string;
+  // lname?: string;
+  // DOB?: string;
   ngOnInit(): void {
   }
 
