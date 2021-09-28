@@ -5,4 +5,8 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SmokeApp_Storage\SmokeApp_Storage.csproj" />
+  </ItemGroup>
+
 </Project>
