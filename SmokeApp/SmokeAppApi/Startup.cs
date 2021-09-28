@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SmokeApp_Storage.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace SmokeAppApi
 {
@@ -43,6 +45,15 @@ namespace SmokeAppApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SmokeAppApi", Version = "v1" });
             });
+
+
+            services.AddDbContext<SmokeDBContext>(options => {
+                //if db options is already configured, dont do anything otherwise use the connection string I have in secrets.json
+                if (!options.IsConfigured)
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("AzureDB"));
+                }
+            });//end addition here
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
