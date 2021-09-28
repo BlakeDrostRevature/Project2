@@ -1,12 +1,19 @@
-﻿using System;
+﻿using SmokeApp_Storage.Repositories;
+using System;
 
 namespace SmokeAppConsoleForTesting
 {
     class Program
     {
+        RawgRepository RRepo = RawgRepository.Instance;
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            run();
+        }
+
+        public static void run()
+        {
+
         }
     }
 }
