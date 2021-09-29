@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-login-user',
   templateUrl: './login-user.component.html',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class LoginUserComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
   @Input() logintrue: boolean = false;
   username?: string;
   password?: string;

@@ -4,7 +4,6 @@ ul {
   padding: 0;
   overflow: hidden;
   background-color: #111;
-
   /* Makes nav bar stays at the top even when scrolling  */
   position: -webkit-sticky; /* Safari */
   position: sticky;
@@ -33,6 +32,12 @@ li {
   background-color: #04AA6D;
 }
 
-.rightAln{
-    float: right;
+.rightAln {
+  float: right;
+}
+
+.time {
+  float: right;
+  position: relative;
+  right: 35%;
 }
