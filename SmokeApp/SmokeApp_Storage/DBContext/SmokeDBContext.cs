@@ -22,7 +22,6 @@ namespace SmokeApp_Storage.Models
         public virtual DbSet<DiscussionReply> DiscussionReplies { get; set; }
         public virtual DbSet<Game> Games { get; set; }
         public virtual DbSet<GamesPlatform> GamesPlatforms { get; set; }
-        public virtual DbSet<Login> Logins { get; set; }
         public virtual DbSet<Platform> Platforms { get; set; }
         public virtual DbSet<Subscription> Subscriptions { get; set; }
         public virtual DbSet<SubscriptionsComment> SubscriptionsComments { get; set; }
@@ -33,7 +32,8 @@ namespace SmokeApp_Storage.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SmokeDB;Trusted_Connection=True;");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Server=tcp:smokedb-server.database.windows.net,1433;Initial Catalog=SmokeDB;Persist Security Info=False;User ID=thesdbadmin;Password=Smokingh0t;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
         }
 
@@ -44,7 +44,7 @@ namespace SmokeApp_Storage.Models
             modelBuilder.Entity<Comment>(entity =>
             {
                 entity.HasKey(e => e.CommentsId)
-                    .HasName("PK__Comments__9487C62CA68F0B38");
+                    .HasName("PK__Comments__9487C62CF8C9DD36");
 
                 entity.Property(e => e.CommentsId).HasColumnName("CommentsID");
 
@@ -57,13 +57,13 @@ namespace SmokeApp_Storage.Models
                 entity.HasOne(d => d.SubscriptionsComments)
                     .WithMany(p => p.Comments)
                     .HasForeignKey(d => d.SubscriptionsCommentsId)
-                    .HasConstraintName("FK__Comments__Subscr__403A8C7D");
+                    .HasConstraintName("FK__Comments__Subscr__7B5B524B");
             });
 
             modelBuilder.Entity<Discussion>(entity =>
             {
                 entity.HasKey(e => e.DiscussionsId)
-                    .HasName("PK__Discussi__40DC06E687D44790");
+                    .HasName("PK__Discussi__40DC06E65E491888");
 
                 entity.Property(e => e.DiscussionsId).HasColumnName("DiscussionsID");
 
@@ -82,13 +82,13 @@ namespace SmokeApp_Storage.Models
                 entity.HasOne(d => d.SubscriptionsDiscussions)
                     .WithMany(p => p.Discussions)
                     .HasForeignKey(d => d.SubscriptionsDiscussionsId)
-                    .HasConstraintName("FK__Discussio__Subsc__36B12243");
+                    .HasConstraintName("FK__Discussio__Subsc__71D1E811");
             });
 
             modelBuilder.Entity<DiscussionReply>(entity =>
             {
                 entity.HasKey(e => e.DiscussionRepliesId)
-                    .HasName("PK__Discussi__E1B0E3DEE1DF5749");
+                    .HasName("PK__Discussi__E1B0E3DE9A55D579");
 
                 entity.Property(e => e.DiscussionRepliesId).HasColumnName("DiscussionRepliesID");
 
@@ -103,13 +103,13 @@ namespace SmokeApp_Storage.Models
                 entity.HasOne(d => d.Discussions)
                     .WithMany(p => p.DiscussionReplies)
                     .HasForeignKey(d => d.DiscussionsId)
-                    .HasConstraintName("FK__Discussio__Discu__3A81B327");
+                    .HasConstraintName("FK__Discussio__Discu__75A278F5");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.DiscussionReplies)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Discussio__UserI__398D8EEE");
+                    .HasConstraintName("FK__Discussio__UserI__74AE54BC");
             });
 
             modelBuilder.Entity<Game>(entity =>
@@ -129,7 +129,7 @@ namespace SmokeApp_Storage.Models
             modelBuilder.Entity<GamesPlatform>(entity =>
             {
                 entity.HasKey(e => e.GamePlatformId)
-                    .HasName("PK__GamesPla__F6E218968FBAC038");
+                    .HasName("PK__GamesPla__F6E218964C3F33A2");
 
                 entity.Property(e => e.GamePlatformId).HasColumnName("GamePlatformID");
 
@@ -140,31 +140,12 @@ namespace SmokeApp_Storage.Models
                 entity.HasOne(d => d.Game)
                     .WithMany(p => p.GamesPlatforms)
                     .HasForeignKey(d => d.GameId)
-                    .HasConstraintName("FK__GamesPlat__GameI__300424B4");
+                    .HasConstraintName("FK__GamesPlat__GameI__6B24EA82");
 
                 entity.HasOne(d => d.Platform)
                     .WithMany(p => p.GamesPlatforms)
                     .HasForeignKey(d => d.PlatformId)
-                    .HasConstraintName("FK__GamesPlat__Platf__30F848ED");
-            });
-
-            modelBuilder.Entity<Login>(entity =>
-            {
-                entity.HasKey(e => e.Username)
-                    .HasName("PK__Logins__536C85E5F7A1B3E8");
-
-                entity.Property(e => e.Username).HasMaxLength(15);
-
-                entity.Property(e => e.Password)
-                    .IsRequired()
-                    .HasMaxLength(20);
-
-                entity.Property(e => e.UserId).HasColumnName("UserID");
-
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.Logins)
-                    .HasForeignKey(d => d.UserId)
-                    .HasConstraintName("FK__Logins__UserID__2D27B809");
+                    .HasConstraintName("FK__GamesPlat__Platf__6C190EBB");
             });
 
             modelBuilder.Entity<Platform>(entity =>
@@ -187,18 +168,18 @@ namespace SmokeApp_Storage.Models
                 entity.HasOne(d => d.Game)
                     .WithMany(p => p.Subscriptions)
                     .HasForeignKey(d => d.GameId)
-                    .HasConstraintName("FK__Subscript__GameI__276EDEB3");
+                    .HasConstraintName("FK__Subscript__GameI__628FA481");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Subscriptions)
                     .HasForeignKey(d => d.UserId)
-                    .HasConstraintName("FK__Subscript__UserI__286302EC");
+                    .HasConstraintName("FK__Subscript__UserI__6383C8BA");
             });
 
             modelBuilder.Entity<SubscriptionsComment>(entity =>
             {
                 entity.HasKey(e => e.SubscriptionsCommentsId)
-                    .HasName("PK__Subscrip__5B90AB3318A6EDC8");
+                    .HasName("PK__Subscrip__5B90AB33985C4B0A");
 
                 entity.Property(e => e.SubscriptionsCommentsId).HasColumnName("SubscriptionsCommentsID");
 
@@ -207,13 +188,13 @@ namespace SmokeApp_Storage.Models
                 entity.HasOne(d => d.Subscription)
                     .WithMany(p => p.SubscriptionsComments)
                     .HasForeignKey(d => d.SubscriptionId)
-                    .HasConstraintName("FK__Subscript__Subsc__3D5E1FD2");
+                    .HasConstraintName("FK__Subscript__Subsc__787EE5A0");
             });
 
             modelBuilder.Entity<SubscriptionsDiscussion>(entity =>
             {
                 entity.HasKey(e => e.SubscriptionsDiscussionsId)
-                    .HasName("PK__Subscrip__3CACE1E4AC5FE2F4");
+                    .HasName("PK__Subscrip__3CACE1E45BCDC43C");
 
                 entity.Property(e => e.SubscriptionsDiscussionsId).HasColumnName("SubscriptionsDiscussionsID");
 
@@ -222,11 +203,14 @@ namespace SmokeApp_Storage.Models
                 entity.HasOne(d => d.Subscription)
                     .WithMany(p => p.SubscriptionsDiscussions)
                     .HasForeignKey(d => d.SubscriptionId)
-                    .HasConstraintName("FK__Subscript__Subsc__33D4B598");
+                    .HasConstraintName("FK__Subscript__Subsc__6EF57B66");
             });
 
             modelBuilder.Entity<User>(entity =>
             {
+                entity.HasIndex(e => e.Username, "UQ__Users__536C85E49EA2B263")
+                    .IsUnique();
+
                 entity.Property(e => e.UserId).HasColumnName("UserID");
 
                 entity.Property(e => e.Dob)
@@ -244,6 +228,14 @@ namespace SmokeApp_Storage.Models
                 entity.Property(e => e.LastName)
                     .IsRequired()
                     .HasMaxLength(50);
+
+                entity.Property(e => e.Password)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Username)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
             });
 
             OnModelCreatingPartial(modelBuilder);

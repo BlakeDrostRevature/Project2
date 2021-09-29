@@ -81,13 +81,13 @@ namespace SmokeApp_Storage.Repositories
             
         }
 
-
+        /*
         public async Task<Api_E_Game[]> GetGamesAsync()
         {
 
             Api_E_Game games = await SendRequestAsync<Api_E_Game>(Endpoint + $"games?key={apiKey}");
             return games.Initialize();
-        }
+        }*/
 
         // static async Task RunAsync()
         // {

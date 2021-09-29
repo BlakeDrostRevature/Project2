@@ -19,6 +19,7 @@ namespace SmokeAppApi.Controllers
 
 
         // GET: api/<Api_E_GamesController>
+        /*
         [HttpGet ("allgames")]
         public async Task<Api_E_Game[]> GetGamesAsync()
         {
@@ -26,7 +27,7 @@ namespace SmokeAppApi.Controllers
             return games;
 
 
-        }
+        }*/
 
         // GET api/<Api_E_GamesController>/5
         [HttpGet("{id}")]
