@@ -6,10 +6,13 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmokeAppApi", "SmokeAppApi\SmokeAppApi.csproj", "{07A7DEC8-6F77-4C90-8837-FB3DA635A778}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmokeApp_Storage", "SmokeApp_Storage\SmokeApp_Storage.csproj", "{A618AF7C-4937-49B7-B98F-F881116F9781}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5DADF510-95FA-4B0C-9495-12A8F287B4C3} = {5DADF510-95FA-4B0C-9495-12A8F287B4C3}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmokeApp_Domain", "SmokeApp_Domain\SmokeApp_Domain.csproj", "{5DADF510-95FA-4B0C-9495-12A8F287B4C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmokeAppConsoleForTesting", "SmokeAppConsoleForTesting\SmokeAppConsoleForTesting.csproj", "{55B4BA6E-623B-4E71-B7F0-CD4B0D7EA667}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmokeAppConsoleForTesting", "SmokeAppConsoleForTesting\SmokeAppConsoleForTesting.csproj", "{55B4BA6E-623B-4E71-B7F0-CD4B0D7EA667}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

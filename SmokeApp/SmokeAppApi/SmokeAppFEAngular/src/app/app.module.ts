@@ -10,6 +10,7 @@ import { RegisterUserComponent } from './register-user/register-user.component';
 import { DiscussionsComponent } from './discussions/discussions.component';
 import { ThreadComponent } from './thread/thread.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     RegisterUserComponent,
     DiscussionsComponent,
     ThreadComponent,
-    DashboardComponent
+    DashboardComponent,
+
   ],
   imports: [
     BrowserModule,
