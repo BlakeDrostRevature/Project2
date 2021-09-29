@@ -1,16 +1,32 @@
 <!--<p (click)="titleclicked(thispara.innerText)" #thispara>{{title}}</p>-->
-
 <!--<h1>{{something}}</h1>-->
 
-<ul>
-  <li><a routerLink="/dashboard">Dashboard</a></li>
 
-  <li class="rightAln"><a class="register" (click)="registeruser()" routerLink="/register">Register</a></li>
+<header>
+  <ul>
+    <li><a routerLink="/dashboard">Dashboard</a></li>
 
-  <li class="rightAln"> <a class="login" (click)="loginuser()" routerLink="/login">Login</a></li>
+    <li class="rightAln"><a class="register" (click)="registeruser()" routerLink="/register">Register</a></li>
 
-  <li><a class="viewdiscussions" (click)="viewdiscussions()" routerLink="/discussions">View Discussions</a></li>
-</ul>
+    <li class="rightAln"> <a class="login" (click)="loginuser()" routerLink="/login">Login</a></li>
 
+    <li><a class="viewdiscussions" (click)="viewdiscussions()" routerLink="/discussions">View Discussions</a></li>
+
+    <li class="time"><a> Todays's Date: {{time | date: "MMM dd - hh:mm a"}}</a></li>
+
+  </ul>
+</header>
+
+
+
+
+<div class="body">
+
+</div>
 
 <router-outlet></router-outlet>
+<footer>
+
+</footer>
+
+

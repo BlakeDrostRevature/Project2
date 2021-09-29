@@ -14,7 +14,7 @@ namespace SmokeAppApi.Controllers
     public class Api_E_GamesController : ControllerBase
     {
         // GET: api/<Api_E_GamesController>
-        [HttpGet]
+        [HttpGet ("allgames")]
         public async Task<Api_E_Game[]> GetGamesAsync()
         {
             var games = new Api_E_Games();

@@ -1,2 +1,11 @@
 <p>dashboard works!</p><br />
 <p>The list of games will be displayd here when the app starts </p>
+
+
+<ul>
+  <li *ngFor="let game of gamelist">
+    {{game.id}} {{game.Name}} {{game.Description}} {{game.Released}} {{game.BackgroundImage}} {{game.Rating}} {{game.Platform}}
+
+  </li>
+
+</ul>
