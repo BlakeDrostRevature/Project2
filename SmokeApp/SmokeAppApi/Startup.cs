@@ -35,7 +35,8 @@ namespace SmokeAppApi
                     builder.WithOrigins(
                         "http://localhost:4200",
                         "https://localhost:5001",
-                        "https://localhost:44348"
+                        "https://localhost:44348",
+                        "http://localhost:5000"
                         )
                     .AllowAnyHeader()
                     .AllowAnyMethod();
