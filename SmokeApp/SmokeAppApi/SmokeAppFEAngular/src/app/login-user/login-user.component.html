@@ -1,9 +1,15 @@
-<div>
+<body>
+
+<form class="login">
   <h3>Please Log In</h3>
 
-  <label for="username">Username:</label>
+  <label for="username" class="label">Username:</label>
   <input type="text" name="username" id="username" [(ngModel)]="username" placeholder="Username">
   <br>
-  <label for="password">Password:</label>
-  <input type="password" name="password" id="password" [(ngModel)]="password">
-</div>
+  <label for="password" class="label">Password:</label>
+  <input type="password" name="password" id="password" [(ngModel)]="password" placeholder="password">
+
+  <button>Login</button>
+</form>
+</body>
+
