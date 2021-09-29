@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+
 import { AppComponent } from './app.component';
 import { LoginUserComponent } from './login-user/login-user.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -25,13 +26,7 @@ import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
     BrowserModule,
     FormsModule,
     RouterModule,
-    AppRoutingModule,
-    LoggerModule.forRoot({
-      serverLoggingUrl: '/api/logs',
-      level: NgxLoggerLevel.TRACE,
-      serverLogLevel: NgxLoggerLevel.ERROR,
-      disableConsoleLogging: false
-    })
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
