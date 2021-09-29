@@ -69,3 +69,9 @@ create table Comments(
 	CommentsRating bit not null,
 	SubscriptionsCommentsID INT NOT NULL FOREIGN KEY REFERENCES SubscriptionsComments(SubscriptionsCommentsID) ON DELETE CASCADE
 );
+
+drop table Logins;
+
+alter table [dbo].[Users]
+add Username varchar(20) unique,
+[Password] varchar(20);

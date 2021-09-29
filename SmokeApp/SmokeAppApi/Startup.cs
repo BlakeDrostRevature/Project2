@@ -13,6 +13,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using SmokeApp_Storage.Models;
 using Microsoft.EntityFrameworkCore;
+using SmokeApp_Storage.Interfaces;
+using SmokeApp_Storage.Repositories;
 
 namespace SmokeAppApi
 {
@@ -28,6 +30,8 @@ namespace SmokeAppApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddScoped<IUserRepo, UserRepo>();
             services.AddCors((options) =>
             {
                 options.AddPolicy(name: "dev", builder =>
