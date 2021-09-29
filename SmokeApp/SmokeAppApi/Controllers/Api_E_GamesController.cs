@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SmokeApp_Storage.ExternalApiModels;
+using SmokeApp_Storage.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,17 +10,20 @@ using System.Threading.Tasks;
 
 namespace SmokeAppApi.Controllers
 {
+
     [Route("[controller]")]
     [ApiController]
     public class Api_E_GamesController : ControllerBase
     {
+    private static readonly RawgRepository rawgRepo = RawgRepository.Instance;
+
+
         // GET: api/<Api_E_GamesController>
         [HttpGet]
         public async Task<Api_E_Game[]> GetGamesAsync()
         {
-            var games = new Api_E_Games();
-            var games2 = await games.GetGamesAsync();
-            return games2;
+            var games = await rawgRepo.GetGamesAsync();
+            return games;
 
 
         }
