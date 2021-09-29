@@ -1,15 +1,27 @@
+
+
+
+
+
+
+
 <div class="content">
   <span>{{title}} is running!</span>
 </div>
 
-<p (click)="titleclicked(thispara.innerText)" #thispara>{{title}}</p>
+<!--<p (click)="titleclicked(thispara.innerText)" #thispara>{{title}}</p>-->
 
-<h1>{{something}}</h1>
-<a routerLink="/dashboard">Dashboard</a>
-<button class="login" (click)="loginuser()" routerLink="/login">Login</button>
-<br>
-<button class="register" (click)="registeruser()" routerLink="/register">Register</button>
-<br>
-<button class="viewdiscussions" (click)="viewdiscussions()" routerLink="/discussions">View Discussions</button>
+<!--<h1>{{something}}</h1>-->
+
+<ul>
+  <li><a routerLink="/dashboard">Dashboard</a></li>
+
+  <li class="rightAln"><a class="register" (click)="registeruser()" routerLink="/register">Register</a></li>
+
+  <li class="rightAln"> <a class="login" (click)="loginuser()" routerLink="/login">Login</a></li>
+
+  <li><a class="viewdiscussions" (click)="viewdiscussions()" routerLink="/discussions">View Discussions</a></li>
+</ul>
+
 
 <router-outlet></router-outlet>
