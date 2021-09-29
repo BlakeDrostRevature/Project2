@@ -10,6 +10,7 @@ export class AppComponent {
   something?: string;// variables need to be initialized so a ? is placed to quiet that error
   logintrue: boolean = false;
   registertrue: boolean = false;
+  time = new Date();
   titleclicked(value: string) {
     console.log(`${value}`)
   }
@@ -28,3 +29,4 @@ export class AppComponent {
 
 
 }
+
