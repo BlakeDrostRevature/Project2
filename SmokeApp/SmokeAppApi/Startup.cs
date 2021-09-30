@@ -32,6 +32,7 @@ namespace SmokeAppApi
         {
 
             services.AddScoped<IUserRepo, UserRepo>();
+            services.AddScoped<IDiscussionRepo, DiscussionRepo>();
             services.AddCors((options) =>
             {
                 options.AddPolicy(name: "dev", builder =>

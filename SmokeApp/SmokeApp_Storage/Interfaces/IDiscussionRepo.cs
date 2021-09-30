@@ -6,12 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SmokeApp_Storage.Interfaces {
-    public interface IUserRepo {
+    public interface IDiscussionRepo {
 
-        Task<List<ViewUser>> UserListAsync();
-
-        Task<ViewUser> LoginUserAsync(ViewUser vu);
-
-        Task<ViewUser> RegisterUserAsync(ViewUser vu);
+        Task<List<ViewDiscussion>> DiscussionListAsync();
     }
 }
