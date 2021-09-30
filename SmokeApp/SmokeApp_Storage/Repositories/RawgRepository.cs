@@ -100,7 +100,7 @@ namespace SmokeApp_Storage.Repositories
             JToken[] temp = obj["results"].ToArray();
             int count = temp.Length;
             
-            for(int i = 0; i < count - 1; i++)
+            for(int i = 0; i < count; i++)
             {            
             var jtoken = obj["results"][i].ToString();
 
