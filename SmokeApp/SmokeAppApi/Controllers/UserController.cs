@@ -40,6 +40,23 @@ namespace SmokeAppApi.Controllers {
             return Ok(vu1);
         }
 
+        [HttpPost("register/{fname}/{lname}/{email}/{username}/{password}/{dob}")]
+        public async Task<ActionResult<ViewUser>> Register(string fname, string lname, string email, string username, string password, DateTime dob) {
+            if (!ModelState.IsValid) return BadRequest();
+            ViewUser vu = new ViewUser {
+                FirstName = fname,
+                LastName = lname,
+                Username = username,
+                Email = email,
+                Dob = dob,
+                Password = password
+            };
+            ViewUser u1 = await _userRepo.RegisterUserAsync(vu);
+            if(u1 == null) {
+                return NotFound();
+            }
+            return u1;
+        }
         // GET: UserController/Create
         public ActionResult Create() {
             return View();

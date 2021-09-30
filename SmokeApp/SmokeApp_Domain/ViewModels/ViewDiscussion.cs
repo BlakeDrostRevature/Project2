@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmokeApp_Domain.Models
 {
-  class Discussion
+  public class ViewDiscussion
   {
     public int DiscussionID { get; set; }
     public int SubscriptionID { get; set; }
@@ -16,7 +16,7 @@ namespace SmokeApp_Domain.Models
 
     public string context { get; set; }
 
-    public Discussion()
+    public ViewDiscussion()
     {
 
     }

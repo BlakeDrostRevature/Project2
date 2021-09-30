@@ -52,5 +52,11 @@ namespace SmokeApp_Storage.Repositories {
             }
             return vu;
         }
+
+        public async Task<ViewUser> RegisterUserAsync(ViewUser vu) {
+            int response = await _context.Database.ExecuteSqlRawAsync("INSERT INTO Users(FirstName, LastName, Email, DOB, Username, [Password]) VALUES ({0},{1},{2},{3},{4},{5})", vu.FirstName, vu.LastName, vu.Email, vu.Dob, vu.Username, vu.Password);
+            if (response != 1) return null;
+            return await LoginUserAsync(vu);
+        }
     }
 }
