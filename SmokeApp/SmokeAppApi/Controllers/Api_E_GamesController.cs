@@ -33,11 +33,13 @@ namespace SmokeAppApi.Controllers
 
     // GET api/<Api_E_GamesController>/5
     [HttpGet("{id}")]
-    public string Get(int id)
+    public async Task<Api_E_Game> GetGameAsync(int id)
     {
       //Task<List<ViewUser>> users = rawgRepo.SendRequestAsync<ViewUser>();
      // List<ViewUser> users1 = await users;
-      return "value";
+      var games = await rawgRepo.GetGameAsync(id);
+      return games;
+      //return "value";
     }
 
     // POST api/<Api_E_GamesController>
