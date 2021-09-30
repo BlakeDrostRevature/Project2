@@ -7,6 +7,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SmokeApp_Storage\SmokeApp_Storage.csproj" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
+    <PackageReference Include="Serilog.sinks.console" Version="4.0.0" />
+    <PackageReference Include="Serilog.sinks.file" Version="5.0.0" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.4.1" />
   </ItemGroup>
 
 </Project>
