@@ -113,13 +113,33 @@ namespace SmokeApp_Storage.Repositories
             
             return returnArray;//.Initialize();
         }
-    
-    // static async Task RunAsync()
-    // {
-    //   client.BaseAddress = new Uri("http://localhost/4200");
-    //   client.DefaultRequestHeaders.Accept.Clear();
-    //   client.DefaultRequestHeaders.Accept.Add(
-    //       new MediaTypeWithQualityHeaderValue("application/json"));
-    // }
-  }
+
+        public async Task<Api_E_Game> GetGameAsync(int ID)
+        {
+
+            string games = await SendRequestAsync<Api_E_Game>(Endpoint + $"games/{ID}?key={apiKey}");
+            Api_E_Game returnGame;
+
+            JObject obj = JObject.Parse(games);      
+
+            var jtoken = obj.ToString();
+
+            var returnobj = JsonConvert.DeserializeObject<dynamic>(jtoken);
+            var tempo = returnobj["id"];
+            var id = Int32.Parse(tempo.ToString());
+            returnGame = new Api_E_Game(id, Convert.ToString(returnobj["name"]), Convert.ToString(returnobj["description"]),
+            Convert.ToString(returnobj["released"]), Convert.ToString(returnobj["background_image"]), Convert.ToString(returnobj["rating"]));
+            
+
+            return returnGame;//.Initialize();
+        }
+
+        // static async Task RunAsync()
+        // {
+        //   client.BaseAddress = new Uri("http://localhost/4200");
+        //   client.DefaultRequestHeaders.Accept.Clear();
+        //   client.DefaultRequestHeaders.Accept.Add(
+        //       new MediaTypeWithQualityHeaderValue("application/json"));
+        // }
+    }
 }
