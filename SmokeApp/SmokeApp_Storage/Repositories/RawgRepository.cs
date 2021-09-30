@@ -71,7 +71,7 @@ namespace SmokeApp_Storage.Repositories
            
             data = JsonConvert.DeserializeObject<dynamic>(content);
             return content;//.Initialize(HttpStatusCode.OK, this) as T;
-      try
+      /*try
       {
         bool redirect = data.redirect;
         return await SendRequestAsync<T>(Endpoint + $"games/{data.slug}");
@@ -83,7 +83,7 @@ namespace SmokeApp_Storage.Repositories
         var test = JsonConvert.DeserializeObject<Api_E_Game>(content);
                 // T temp = test.Initialize(HttpStatusCode.OK, this) as T;
                 return content;//.Initialize(HttpStatusCode.OK, this) as T;
-      }
+      }*/
 
 
     }

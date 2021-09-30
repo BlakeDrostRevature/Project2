@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace SmokeApp_Domain.Models
 {
-  class Subscription
+  public class ViewSubscription
   {
     public int SubscriptionID { get; set; }
     public int UserID { get; set; }
-    public string GameID { get; set; }
-    public Subscription()
+    public int GameID { get; set; }
+    public ViewSubscription()
     {
 
     }
