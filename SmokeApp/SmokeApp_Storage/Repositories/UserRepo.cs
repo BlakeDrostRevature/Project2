@@ -13,6 +13,7 @@ namespace SmokeApp_Storage.Repositories {
 
         private readonly SmokeDBContext _context;
 
+
         public UserRepo(SmokeDBContext context) {
             _context = context;
         }

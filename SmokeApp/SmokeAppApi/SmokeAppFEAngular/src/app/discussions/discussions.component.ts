@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { title } from 'process';
+//import { title } from 'process';
 
 @Component({
   selector: 'app-discussions',
@@ -17,7 +17,6 @@ export class DiscussionsComponent implements OnInit {
   ngOnInit(): void {
     this.getDiscussions();
   }
-
 
   discussions = [
     {

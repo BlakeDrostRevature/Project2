@@ -10,7 +10,6 @@ import { DiscussionsComponent } from './discussions/discussions.component';
 import { ThreadComponent } from './thread/thread.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http'
-import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 
 @NgModule({
   declarations: [
