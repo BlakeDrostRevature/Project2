@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using SmokeApp_Storage.ExternalApiModels;
 using SmokeApp_Storage.Models;
 using System;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -92,14 +93,25 @@ namespace SmokeApp_Storage.Repositories
         {
 
             string games = await SendRequestAsync<Api_E_Game>(Endpoint + $"games?key={apiKey}");
+            Api_E_Game[] returnArray = new Api_E_Game[20];
+            
             JObject obj = JObject.Parse(games);
-            var jtoken = obj["results"][6].ToString();
+
+            JToken[] temp = obj["results"].ToArray();
+            int count = temp.Length;
+            
+            for(int i = 0; i < count - 1; i++)
+            {            
+            var jtoken = obj["results"][i].ToString();
+
             var returnobj = JsonConvert.DeserializeObject<dynamic>(jtoken);
             var tempo = returnobj["id"];
-           var temper = Int32.Parse(tempo.ToString());
-           Api_E_Game result = new Api_E_Game(temper, Convert.ToString(returnobj["name"]), Convert.ToString(returnobj["description"]),
+            var id = Int32.Parse(tempo.ToString());
+            returnArray[i] = new Api_E_Game(id, Convert.ToString(returnobj["name"]), Convert.ToString(returnobj["description"]),
             Convert.ToString(returnobj["released"]), Convert.ToString(returnobj["background_image"]), Convert.ToString(returnobj["rating"]));
-            return new Api_E_Game[] { result };//.Initialize();
+            }
+            
+            return returnArray;//.Initialize();
         }
     
     // static async Task RunAsync()
