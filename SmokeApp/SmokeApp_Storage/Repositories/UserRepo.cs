@@ -24,7 +24,12 @@ namespace SmokeApp_Storage.Repositories {
         }
 
         public ViewUser EFToView(User u) {
+            
+            
+
+            
             ViewUser vu = new ViewUser {
+                
                 UserId = u.UserId,
                 FirstName = u.FirstName,
                 LastName = u.LastName,
@@ -40,7 +45,9 @@ namespace SmokeApp_Storage.Repositories {
         public async Task<ViewUser> LoginUserAsync(ViewUser vu) {
             User u1 = await _context.Users.FromSqlRaw<User>("SELECT * FROM Users WHERE Username = {0} AND [Password] = {1}", vu.Username, vu.Password).FirstOrDefaultAsync();
             Console.WriteLine(u1.LastName);
+
             if (u1 == null) return null;
+
             ViewUser vu1 = EFToView(u1);
             return vu1;
         }
