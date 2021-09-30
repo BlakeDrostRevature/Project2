@@ -11,6 +11,7 @@ import { ThreadComponent } from './thread/thread.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http'
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
     DiscussionsComponent,
     ThreadComponent,
     DashboardComponent,
+    UserComponent,
 
   ],
   imports: [
