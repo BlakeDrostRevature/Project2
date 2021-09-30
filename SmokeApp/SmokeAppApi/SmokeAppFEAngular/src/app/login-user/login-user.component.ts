@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class LoginUserComponent implements OnInit {
 
-  constructor() {}
+  constructor() { }
   @Input() logintrue: boolean = false;
   username?: string;
   password?: string;
@@ -16,5 +16,6 @@ export class LoginUserComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }
