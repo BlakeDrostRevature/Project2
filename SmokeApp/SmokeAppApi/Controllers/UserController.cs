@@ -34,6 +34,12 @@ namespace SmokeAppApi.Controllers {
             if (!ModelState.IsValid) return BadRequest();
             ViewUser vu = new ViewUser() { Username = username, Password = password };
             ViewUser vu1 = await _userRepo.LoginUserAsync(vu);
+
+            if (vu.Password != vu1.Password)
+            {
+                return new ViewUser { FirstName = "Wrong Password" };
+            }
+
             if (vu1 == null) {
                 return NotFound();
             }

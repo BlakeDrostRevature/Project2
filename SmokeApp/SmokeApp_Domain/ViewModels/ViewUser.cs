@@ -17,7 +17,7 @@ namespace SmokeApp_Domain.Models
         public string Password { get; set; }
         public ViewUser()
     {
-
+            
     }
   }
 }
