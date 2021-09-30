@@ -6,5 +6,5 @@ export interface Game {
   BackgroundImage: string;
   Rating: string;
   Platform: Object;
-
+  time: string;
 }

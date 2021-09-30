@@ -32,6 +32,26 @@
       <label for="lname">Last Name:</label>
       <input type="text" name="password" id="password" placeholder="password">
       <button type="submit">Submit</button>
-      </div>
+    </div>
   </form>
-  </div>
+</div>
+
+
+
+<!--<div style="text-align:center">
+  <h1>
+    Welcome!
+  </h1>
+  <button (click)="getGames()">Fetch Data</button>
+</div>-->
+
+
+<button (click)="getGames()">Fetch Data</button>
+
+
+<div *ngFor="let game of data" style="text-align:center">
+  <h3>
+    {{ game.name }}
+  </h3>
+  <img width="200" alt="thumbnail" [src]="game.background_image">
+</div>

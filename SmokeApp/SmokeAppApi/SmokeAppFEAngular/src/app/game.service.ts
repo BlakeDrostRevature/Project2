@@ -10,8 +10,8 @@ import { Game } from './game';
 export class GameService {
 
   constructor(private http: HttpClient) { }
-
-  private url = 'https://localhost:44348/Api_E_Games'
+  private data: any = []
+  private url = 'https://localhost:44348/Api_E_Games/allgames'
 
 
 
@@ -30,4 +30,13 @@ export class GameService {
   }
 
 
+
+  getGames() {
+
+    this.http.get(this.url).subscribe((res) => {
+      this.data = res
+      console.log(this.data)
+    })
+
+  }
 }

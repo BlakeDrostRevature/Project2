@@ -31,11 +31,11 @@ export class UsersService {
 
 
 
-  getUserDetails(username: string, password: string) {
+  getUserDetails(username: string, password: string): Observable<Users> {
     // post these details to API server return user info if correct
-    return this.http.post<Users>(`${this.loginurl}${username}/${password}`, {
-      username,
-      password
+    return this.http.get<Users>(`${this.loginurl}${username}/${password}`, {
+      //username,
+      //password
     })
   }
 

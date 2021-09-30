@@ -35,13 +35,15 @@ namespace SmokeAppApi.Controllers {
             ViewUser vu = new ViewUser() { Username = username, Password = password };
             ViewUser vu1 = await _userRepo.LoginUserAsync(vu);
 
-            if (vu.Password != vu1.Password)
-            {
-                return new ViewUser { FirstName = "Wrong Password" };
-            }
+            
 
             if (vu1 == null) {
                 return NotFound();
+            }
+
+            if (vu.Password != vu1.Password)
+            {
+                return new ViewUser { /*Username = "Wrong Password", Password = "1234"*/ };
             }
             return Ok(vu1);
         }

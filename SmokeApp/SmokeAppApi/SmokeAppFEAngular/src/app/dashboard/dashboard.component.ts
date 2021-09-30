@@ -4,6 +4,7 @@ import { Game } from '../game';
 import { Users } from '../users';
 import { UsersService } from '../users.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private gameService: GameService, private userService: UsersService, private router: Router) { }
+  constructor(private gameService: GameService, private userService: UsersService, private router: Router, private http: HttpClient) { }
   @Input() logintrue: boolean = false;
   //username?: string;
   //password?: string;
@@ -85,7 +86,7 @@ export class DashboardComponent implements OnInit {
 
         //this will always get ran regardless
         () => console.log(`This is running by default as always `),
-    );
+      );
 
     this.observablelistlogin
       .subscribe(
@@ -105,6 +106,21 @@ export class DashboardComponent implements OnInit {
   }
 
 
+
+
+  data: any = []
+  private url = 'https://localhost:44348/Api_E_Games/allgames'
+  getGames() {
+
+    this.http.get(this.url).subscribe((res) => {
+      this.data = res
+      console.log(this.data)
+    })
+
+  }
+
+
+
   gamedetails(id: number): void {
     this.selectedGame = this.gamelist.find(x => x.id === id)
 
@@ -114,7 +130,7 @@ export class DashboardComponent implements OnInit {
   }
 
   //userlogin(username, password): void {
-   
+
 
   //  this.selectedUser = this.loginlist.find(z => z.Username === userName && z.Password === password)
   //}
