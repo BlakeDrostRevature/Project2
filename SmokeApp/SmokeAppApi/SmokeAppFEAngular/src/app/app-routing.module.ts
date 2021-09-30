@@ -6,6 +6,7 @@ import { RegisterUserComponent } from './register-user/register-user.component';
 import { DiscussionsComponent } from './discussions/discussions.component';
 import { ThreadComponent } from './thread/thread.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserComponent } from './user/user.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'login', component: LoginUserComponent },
   { path: 'register', component: RegisterUserComponent },
   { path: 'discussions', component: DiscussionsComponent },
-  { path: 'thread', component: ThreadComponent }
+  { path: 'thread', component: ThreadComponent },
+  { path: 'listofusers', component: UserComponent }
   
 ];
 

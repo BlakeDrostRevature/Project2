@@ -20,14 +20,14 @@ export class DashboardComponent implements OnInit {
   //password?: string;
 
   selectedGame?: Game;
-  selectedUser?: Users;
+
   //cerating an array for the games recived storing them to variable gamelist
   gamelist: Game[] = [];
-  userlist: Users[] = [];
+ 
   loginlist: Users[] = [];
   //creating an observable to route through games service to have access the list of games by using dependency injection
   observablelist = this.gameService.gameslist();
-  observablelistuser = this.userService.userlist();
+ 
   observablelistlogin = this.userService.loginuser();
 
 
@@ -61,33 +61,23 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.getGames()
     this.logintrue = true;
 
-    this.observablelist
-      .subscribe(
-        x => {
-          this.gamelist = x;
-        },
-        //if there was an error in the retrival of the list of games this will run
-        error => console.log(`There was a ${error} error`),
+    //this.observablelist
+    //  .subscribe(
+    //    x => {
+    //      this.gamelist = x;
+    //    },
+    //    //if there was an error in the retrival of the list of games this will run
+    //    error => console.log(`There was a ${error} error`),
 
-        //this will always get ran regardless
-        () => console.log(`This is running by default as always `),
-      );
+    //    //this will always get ran regardless
+    //    () => console.log(`This is running by default as always `),
+    //  );
 
 
-    this.observablelistuser
-      .subscribe(
-        y => {
-          this.userlist = y;
-        },
-        //if there was an error in the retrival of the list of games this will run
-        error => console.log(`There was a ${error} error`),
-
-        //this will always get ran regardless
-        () => console.log(`This is running by default as always `),
-      );
-
+   
     this.observablelistlogin
       .subscribe(
         z => {
@@ -125,9 +115,7 @@ export class DashboardComponent implements OnInit {
     this.selectedGame = this.gamelist.find(x => x.id === id)
 
   }
-  userdetails(id: number): void {
-    this.selectedUser = this.userlist.find(y => y.userId === id)
-  }
+ 
 
   //userlogin(username, password): void {
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Users } from './users';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,16 @@ export class AppComponent {
     this.registertrue = !this.registertrue;
   }
 
+  registernewcustomer(user: Users) {
+
+    console.log(`The new customer is ${user.firstName} ${user.lastName}`)
+  }
+
   viewdiscussions() {
+
+  }
+
+  viewusers() {
 
   }
 

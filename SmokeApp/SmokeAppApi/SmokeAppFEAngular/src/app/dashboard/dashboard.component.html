@@ -1,27 +1,19 @@
-<p>dashboard works!</p>
+<!--<p>dashboard works!</p>
 <br />
-<p>The list of games will be displayed here when the app starts </p>
+<p>The list of games will be displayed here when the app starts </p>-->
 
 
-<ul>
-  <li *ngFor="let user of userlist">
-    {{user.userId}}  {{user.firstName}}  {{user.lastName}}  {{user.email}}  {{user.dob}}  {{user.Username}}  {{user.Password}}
-  </li>
-
-</ul>
-
-
-<ul>
+<!--<ul>
   <li *ngFor="let game of gamelist">
     {{game.id}} {{game.Name}} {{game.Description}} {{game.Released}} {{game.BackgroundImage}} {{game.Rating}} {{game.Platform}}
 
   </li>
 
-</ul>
+</ul>-->
 
 
 
-<div>
+<!--<div>
   <h3>Please Log In</h3>
 
   <form (submit)="loginUser($event)">
@@ -34,7 +26,7 @@
       <button type="submit">Submit</button>
     </div>
   </form>
-</div>
+</div>-->
 
 
 
@@ -46,12 +38,31 @@
 </div>-->
 
 
-<button (click)="getGames()">Fetch Data</button>
 
 
-<div *ngFor="let game of data" style="text-align:center">
-  <h3>
-    {{ game.name }}
-  </h3>
-  <img width="200" alt="thumbnail" [src]="game.background_image">
+
+<div class="container">
+
+  <div style="text-align:center">
+    <h1>
+      Welcome to Project Smoke
+    </h1>
+
+    
+  </div>
+
+  <div class="gallery" *ngFor="let game of data">
+
+    <img width="200" alt="thumbnail" [src]="game.background_image">
+    <h3>
+      {{ game.name }}<br />
+      Ratings: {{game.rating}}
+      Description: {{game.description}}
+      Platform: {{game.platform}}
+      Released: {{game.released}}
+
+    </h3>
+
+  </div>
+
 </div>
