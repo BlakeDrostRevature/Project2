@@ -1,5 +1,14 @@
-<p>dashboard works!</p><br />
-<p>The list of games will be displayd here when the app starts </p>
+<p>dashboard works!</p>
+<br />
+<p>The list of games will be displayed here when the app starts </p>
+
+
+<ul>
+  <li *ngFor="let user of userlist">
+    {{user.userId}}  {{user.firstName}}  {{user.lastName}}  {{user.email}}  {{user.dob}}  {{user.Username}}  {{user.Password}}
+  </li>
+
+</ul>
 
 
 <ul>
@@ -9,3 +18,20 @@
   </li>
 
 </ul>
+
+
+
+<div>
+  <h3>Please Log In</h3>
+
+  <form (submit)="loginUser($event)">
+    <div class="container">
+      <label for="fname">First Name:</label>
+      <input type="text" name="username" id="username" placeholder="username">
+      <br>
+      <label for="lname">Last Name:</label>
+      <input type="text" name="password" id="password" placeholder="password">
+      <button type="submit">Submit</button>
+      </div>
+  </form>
+  </div>

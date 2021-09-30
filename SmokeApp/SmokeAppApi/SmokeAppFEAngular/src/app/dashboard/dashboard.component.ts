@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { GameService } from '../game.service'
-import {Game} from '../game'
+import { Component, Input, OnInit } from '@angular/core';
+import { GameService } from '../game.service';
+import { Game } from '../game';
+import { Users } from '../users';
+import { UsersService } from '../users.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -9,14 +13,45 @@ import {Game} from '../game'
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private gameService: GameService) { }
-
+  constructor(private gameService: GameService, private userService: UsersService, private router: Router) { }
+  @Input() logintrue: boolean = false;
+  //username?: string;
+  //password?: string;
 
   selectedGame?: Game;
+  selectedUser?: Users;
   //cerating an array for the games recived storing them to variable gamelist
   gamelist: Game[] = [];
+  userlist: Users[] = [];
+  loginlist: Users[] = [];
   //creating an observable to route through games service to have access the list of games by using dependency injection
   observablelist = this.gameService.gameslist();
+  observablelistuser = this.userService.userlist();
+  observablelistlogin = this.userService.loginuser();
+
+
+
+
+  loginUser(event: { preventDefault: () => void; target: any; }) {
+    event.preventDefault()
+    const target = event.target
+    const username = target.querySelector('#username').value
+    const password = target.querySelector('#password').value
+    console.log(username, password)
+
+    this.userService.getUserDetails(username, password)
+      .subscribe(data => {
+        if (data.Username) {
+          console.log("loging successful");
+        }
+        else { window.alert("Incorrect login") }
+      })
+
+
+
+  }
+
+
 
 
 
@@ -25,6 +60,8 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.logintrue = true;
+
     this.observablelist
       .subscribe(
         x => {
@@ -35,13 +72,50 @@ export class DashboardComponent implements OnInit {
 
         //this will always get ran regardless
         () => console.log(`This is running by default as always `),
+      );
+
+
+    this.observablelistuser
+      .subscribe(
+        y => {
+          this.userlist = y;
+        },
+        //if there was an error in the retrival of the list of games this will run
+        error => console.log(`There was a ${error} error`),
+
+        //this will always get ran regardless
+        () => console.log(`This is running by default as always `),
     );
+
+    this.observablelistlogin
+      .subscribe(
+        z => {
+          this.loginlist = z;
+        },
+        //if there was an error in the retrival of the list of games this will run
+        error => console.log(`There was a ${error} error`),
+
+        //this will always get ran regardless
+        () => console.log(`This is running by default as always `),
+      );
+
+
+
+
   }
 
 
-  gamedetails(id: number): void  {
+  gamedetails(id: number): void {
     this.selectedGame = this.gamelist.find(x => x.id === id)
+
+  }
+  userdetails(id: number): void {
+    this.selectedUser = this.userlist.find(y => y.userId === id)
   }
 
+  //userlogin(username, password): void {
+   
 
+  //  this.selectedUser = this.loginlist.find(z => z.Username === userName && z.Password === password)
+  //}
 }

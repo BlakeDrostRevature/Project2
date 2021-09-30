@@ -12,9 +12,8 @@ export class LoginUserComponent implements OnInit {
   @Input() logintrue: boolean = false;
   username?: string;
   password?: string;
-  // fname?: string;
-  // lname?: string;
-  // DOB?: string;
+
+
   ngOnInit(): void {
   }
 
