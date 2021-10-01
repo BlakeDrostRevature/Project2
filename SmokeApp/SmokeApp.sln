@@ -14,7 +14,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmokeApp_Domain", "SmokeApp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmokeAppConsoleForTesting", "SmokeAppConsoleForTesting\SmokeAppConsoleForTesting.csproj", "{55B4BA6E-623B-4E71-B7F0-CD4B0D7EA667}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmokeApp_Testing", "SmokeApp_Testing\SmokeApp_Testing.csproj", "{24B5EF77-18B3-45AD-9726-6D04976C88D9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{47A7AE16-E214-4DA1-9F1A-58FEDEB79E4E}"
+	ProjectSection(SolutionItems) = preProject
+		data\log.txt = data\log.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,10 +41,6 @@ Global
 		{55B4BA6E-623B-4E71-B7F0-CD4B0D7EA667}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55B4BA6E-623B-4E71-B7F0-CD4B0D7EA667}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55B4BA6E-623B-4E71-B7F0-CD4B0D7EA667}.Release|Any CPU.Build.0 = Release|Any CPU
-		{24B5EF77-18B3-45AD-9726-6D04976C88D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{24B5EF77-18B3-45AD-9726-6D04976C88D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{24B5EF77-18B3-45AD-9726-6D04976C88D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{24B5EF77-18B3-45AD-9726-6D04976C88D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,6 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Serilog;
 using SmokeApp_Storage.ExternalApiModels;
 using SmokeApp_Storage.Models;
 using System;
@@ -16,6 +17,7 @@ namespace SmokeApp_Storage.Repositories
     private static RawgRepository _rawgRepository;
     private readonly HttpClient client;
     internal const string Endpoint = "https://api.rawg.io/api/";
+    private const string _logFilePath = @"..\data\log.txt";
     public dynamic data { get; private set; }
 
 
@@ -35,7 +37,9 @@ namespace SmokeApp_Storage.Repositories
     public RawgRepository()
     {
       apiKey = "529258b2f69a47c79b806e2c88a9c75f";
-
+      Log.Logger = new LoggerConfiguration().WriteTo.File(_logFilePath).CreateLogger();
+     // Log.Logger = new LoggerConfiguration().WriteTo.Debug().CreateLogger();
+      
       client = new HttpClient(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.GZip });
       client.DefaultRequestHeaders.Add("Api_Key", apiKey);
       client.Timeout = TimeSpan.FromMinutes(10);
@@ -67,7 +71,7 @@ namespace SmokeApp_Storage.Repositories
 
       string content = await response.Content.ReadAsStringAsync();
             JObject obj = JObject.Parse(content);
-           
+            Log.Information($"{query} - Response: {response.StatusCode.ToString()}", DateTime.Now);
            
             data = JsonConvert.DeserializeObject<dynamic>(content);
             return content;//.Initialize(HttpStatusCode.OK, this) as T;
@@ -110,7 +114,7 @@ namespace SmokeApp_Storage.Repositories
             returnArray[i] = new Api_E_Game(id, Convert.ToString(returnobj["name"]), Convert.ToString(returnobj["description"]),
             Convert.ToString(returnobj["released"]), Convert.ToString(returnobj["background_image"]), Convert.ToString(returnobj["rating"]));
             }
-            
+            Log.Information($"All Games Object Convert & Return: {returnArray}", DateTime.Now);
             return returnArray;//.Initialize();
         }
 
@@ -129,8 +133,8 @@ namespace SmokeApp_Storage.Repositories
             var id = Int32.Parse(tempo.ToString());
             returnGame = new Api_E_Game(id, Convert.ToString(returnobj["name"]), Convert.ToString(returnobj["description"]),
             Convert.ToString(returnobj["released"]), Convert.ToString(returnobj["background_image"]), Convert.ToString(returnobj["rating"]));
-            
 
+            Log.Information($"Single Game Object Convert & Return: {returnGame}", DateTime.Now);
             return returnGame;//.Initialize();
         }
 
