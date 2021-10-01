@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Users } from '../users';
 import { UsersService } from '../users.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-user',
@@ -29,6 +30,7 @@ export class UserComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.getGames()
     this.logintrue = true;
 
     this.observablelistuser
@@ -51,6 +53,18 @@ export class UserComponent implements OnInit {
 
   userdetails(id: number): void {
     this.selectedUser = this.userlist.find(y => y.userId === id)
+  }
+ 
+  data: any = []
+  private url = 'https://localhost:44348/userlist'
+  getGames() {
+
+    this.http.get(this.url).subscribe((res) => {
+      this.data = res
+      this.userlist = this.data
+      console.log(this.userlist)
+    })
+
   }
 
 
