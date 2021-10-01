@@ -26,9 +26,9 @@ export class UsersService {
     return this.http.get<Users[]>(`${this.url}userlist`);
   }
 
-  loginuser(): Observable<Users[]> {
+  loginuser(u: Users): Observable<Users> {
 
-    return this.http.get<Users[]>(`${this.loginurl}`);
+    return this.http.get<Users>(`${this.loginurl}${u.Username}/${u.Password}`);
   }
 
 
@@ -36,6 +36,11 @@ export class UsersService {
   registeruser(u: Users): Observable<Users> {
     console.log('made it to service')
     return this.http.post<Users>(`${this.registerurl}${u.firstName}/${u.lastName}/${u.email}/${u.Username}/${u.Password}/${u.dob}`, this.httpOptions);
+  }
+
+  storeuser(u: Users) {
+    sessionStorage.setItem('currentuser', (`${u.firstName} ${u.lastName}`))
+
   }
 
 

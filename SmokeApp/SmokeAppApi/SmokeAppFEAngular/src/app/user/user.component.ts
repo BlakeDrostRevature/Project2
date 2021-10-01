@@ -16,14 +16,14 @@ export class UserComponent implements OnInit {
   //username?: string;
   //password?: string;
 
-  
+
   selectedUser?: Users;
   userlist: Users[] = [];
   loginlist: Users[] = [];
   //creating an observable to route through games service to have access the list of games by using dependency injection
-  
+
   observablelistuser = this.userService.userlist();
-  
+
 
 
 
@@ -43,12 +43,12 @@ export class UserComponent implements OnInit {
         () => console.log(`This is running by default as always `),
       );
 
-    
+
   }
 
 
 
-      
+
   userdetails(id: number): void {
     this.selectedUser = this.userlist.find(y => y.userId === id)
   }

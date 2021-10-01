@@ -48,12 +48,13 @@
       Welcome to Project Smoke
     </h1>
 
-    
+
   </div>
 
   <div class="gallery" *ngFor="let game of data">
-
-    <img width="200" alt="thumbnail" [src]="game.background_image">
+    <a href="discussions">
+      <img width="200" alt="thumbnail" [src]="game.background_image">
+    </a>
     <h3>
       {{ game.name }}<br />
       Ratings: {{game.rating}}

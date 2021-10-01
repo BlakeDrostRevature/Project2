@@ -1,4 +1,4 @@
-<body>
+<!-- <body>
 
 <form class="login">
   <h3>Please Log In</h3>
@@ -11,5 +11,19 @@
 
   <button>Login</button>
 </form>
-</body>
+</body> -->
 
+<form class='login' (submit)="loginUser()" [formGroup]="reactiveloginform">
+
+  <label for="username">Username:</label>
+  <input type="text" name="username" formControlName="username">
+  <br>
+
+  <label for="password">Password:</label>
+  <input type="password" name="password" formControlName="password">
+  <br>
+
+  <input type="submit" value="submit" [disabled]='!reactiveloginform.valid'>
+
+</form>
+<!-- (submit)="loginuser()" -->

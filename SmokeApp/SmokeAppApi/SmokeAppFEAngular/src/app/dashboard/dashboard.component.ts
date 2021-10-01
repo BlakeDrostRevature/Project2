@@ -23,34 +23,33 @@ export class DashboardComponent implements OnInit {
 
   //cerating an array for the games recived storing them to variable gamelist
   gamelist: Game[] = [];
- 
+
   loginlist: Users[] = [];
   //creating an observable to route through games service to have access the list of games by using dependency injection
   observablelist = this.gameService.gameslist();
- 
-  observablelistlogin = this.userService.loginuser();
 
 
 
 
-  loginUser(event: { preventDefault: () => void; target: any; }) {
-    event.preventDefault()
-    const target = event.target
-    const username = target.querySelector('#username').value
-    const password = target.querySelector('#password').value
-    console.log(username, password)
 
-    this.userService.getUserDetails(username, password)
-      .subscribe(data => {
-        if (data.Username) {
-          console.log("loging successful");
-        }
-        else { window.alert("Incorrect login") }
-      })
+  // loginUser(event: { preventDefault: () => void; target: any; }) {
+  //   event.preventDefault()
+  //   const target = event.target
+  //   const username = target.querySelector('#username').value
+  //   const password = target.querySelector('#password').value
+  //   console.log(username, password)
+
+  //   this.userService.getUserDetails(username, password)
+  //     .subscribe(data => {
+  //       if (data.Username) {
+  //         console.log("loging successful");
+  //       }
+  //       else { window.alert("Incorrect login") }
+  //     })
 
 
 
-  }
+  // }
 
 
 
@@ -77,18 +76,18 @@ export class DashboardComponent implements OnInit {
     //  );
 
 
-   
-    this.observablelistlogin
-      .subscribe(
-        z => {
-          this.loginlist = z;
-        },
-        //if there was an error in the retrival of the list of games this will run
-        error => console.log(`There was a ${error} error`),
 
-        //this will always get ran regardless
-        () => console.log(`This is running by default as always `),
-      );
+    // this.observablelistlogin
+    //   .subscribe(
+    //     z => {
+    //       this.loginlist = z;
+    //     },
+    //     //if there was an error in the retrival of the list of games this will run
+    //     error => console.log(`There was a ${error} error`),
+
+    //     //this will always get ran regardless
+    //     () => console.log(`This is running by default as always `),
+    //   );
 
 
 
@@ -115,7 +114,7 @@ export class DashboardComponent implements OnInit {
     this.selectedGame = this.gamelist.find(x => x.id === id)
 
   }
- 
+
 
   //userlogin(username, password): void {
 

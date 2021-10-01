@@ -26,33 +26,30 @@ export class RegisterUserComponent implements OnInit {
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
     dob: new FormControl('', [Validators.required])
-   
-   
-   
   });
 
   @Output() passNewUserToParent = new EventEmitter<Users>();
 
   ngOnInit(): void {
+
   }
+
 
 
   registeruser() {
 
     let u: Users = {
-      firstName: this.reactiveform.get('fname')?.value, lastName: this.reactiveform.get('lname')?.value, email: this.reactiveform.get('email')?.value, Username: this.reactiveform.get('username')?.value,  Password: this.reactiveform.get('password')?.value, dob: this.reactiveform.get('dob')?.value,   userId: 0
+      firstName: this.reactiveform.get('fname')?.value, lastName: this.reactiveform.get('lname')?.value, email: this.reactiveform.get('email')?.value, Username: this.reactiveform.get('username')?.value, Password: this.reactiveform.get('password')?.value, dob: this.reactiveform.get('dob')?.value, userId: 0
     }
     u.dob = this.reactiveform.get('dob')?.value + `T00:00:00.000Z`;
-    console.log(u)
     this.usersService
       .registeruser(u)
-      .subscribe(Users => u)
+      .subscribe(user => this.usersService.storeuser(user))
 
-    console.log(u)
 
 
     this.passNewUserToParent.emit(u);
-    
+
   }
 
 }
