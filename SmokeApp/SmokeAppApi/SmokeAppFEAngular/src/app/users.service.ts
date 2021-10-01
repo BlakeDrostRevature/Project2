@@ -31,9 +31,11 @@ export class UsersService {
     return this.http.get<Users[]>(`${this.loginurl}`);
   }
 
+
+  //Register a new user
   registeruser(u: Users): Observable<Users> {
     console.log('made it to service')
-    return this.http.post<Users>(`${this.registerurl}`, u, this.httpOptions);
+    return this.http.post<Users>(`${this.registerurl}${u.firstName}/${u.lastName}/${u.email}/${u.Username}/${u.Password}/${u.dob}`, this.httpOptions);
   }
 
 

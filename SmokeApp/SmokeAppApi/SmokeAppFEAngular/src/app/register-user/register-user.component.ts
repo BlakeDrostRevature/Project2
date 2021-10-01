@@ -22,10 +22,13 @@ export class RegisterUserComponent implements OnInit {
   reactiveform = new FormGroup({
     fname: new FormControl('', [Validators.required, Validators.maxLength(20), Validators.minLength(3), Validators.pattern('[a-zA-Z]*')]),
     lname: new FormControl('', [Validators.required, Validators.maxLength(20), Validators.minLength(3)]),
-    dob: new FormControl('', [Validators.required]),
     email: new FormControl('', Validators.email),
     username: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required])
+    password: new FormControl('', [Validators.required]),
+    dob: new FormControl('', [Validators.required])
+   
+   
+   
   });
 
   @Output() passNewUserToParent = new EventEmitter<Users>();
@@ -37,7 +40,7 @@ export class RegisterUserComponent implements OnInit {
   registeruser() {
 
     let u: Users = {
-      Username: this.reactiveform.get('username')?.value, firstName: this.reactiveform.get('fname')?.value, lastName: this.reactiveform.get('lname')?.value, dob: this.reactiveform.get('dob')?.value, Password: this.reactiveform.get('password')?.value, email: this.reactiveform.get('email')?.value, userId: 0
+      firstName: this.reactiveform.get('fname')?.value, lastName: this.reactiveform.get('lname')?.value, email: this.reactiveform.get('email')?.value, Username: this.reactiveform.get('username')?.value,  Password: this.reactiveform.get('password')?.value, dob: this.reactiveform.get('dob')?.value,   userId: 0
     }
     u.dob = this.reactiveform.get('dob')?.value + `T00:00:00.000Z`;
     console.log(u)
@@ -49,6 +52,7 @@ export class RegisterUserComponent implements OnInit {
 
 
     this.passNewUserToParent.emit(u);
+    
   }
 
 }

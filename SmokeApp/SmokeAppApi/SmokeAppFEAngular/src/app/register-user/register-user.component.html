@@ -37,10 +37,6 @@
   <input type="email" name="email" formControlName="email">
   <br>
 
-  <label for="dob">Date of Birth:</label>
-  <input type="date" name="dob" formControlName="dob">
-  <br>
-
   <label for="username">Username:</label>
   <input type="text" name="username" formControlName="username">
   <br>
@@ -49,6 +45,16 @@
   <input type="password" name="password" formControlName="password">
   <br>
 
+  <label for="dob">Date of Birth:</label>
+  <input type="date" name="dob" formControlName="dob">
+  <br>
+
+
+
+
+
   <input type="submit" value="submit" [disabled]='!reactiveform.valid'>
+
+ 
 
 </form>
