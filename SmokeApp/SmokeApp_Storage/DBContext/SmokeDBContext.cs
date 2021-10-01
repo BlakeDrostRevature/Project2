@@ -21,8 +21,6 @@ namespace SmokeApp_Storage.Models
         public virtual DbSet<Discussion> Discussions { get; set; }
         public virtual DbSet<DiscussionReply> DiscussionReplies { get; set; }
         public virtual DbSet<Game> Games { get; set; }
-        public virtual DbSet<GamesPlatform> GamesPlatforms { get; set; }
-        public virtual DbSet<Platform> Platforms { get; set; }
         public virtual DbSet<Subscription> Subscriptions { get; set; }
         public virtual DbSet<SubscriptionsComment> SubscriptionsComments { get; set; }
         public virtual DbSet<SubscriptionsDiscussion> SubscriptionsDiscussions { get; set; }
@@ -115,16 +113,10 @@ namespace SmokeApp_Storage.Models
             {
                 entity.Property(e => e.GameId).HasColumnName("GameID");
 
-                entity.Property(e => e.GameDescription)
-                    .IsRequired()
-                    .HasMaxLength(300)
-                    .IsUnicode(false);
+                entity.Property(e => e.ExternalAPIGameId).HasColumnName("ExternalAPIGameID");//ExternalAPIGameId.HasColumnName("ExternalAPIGameID"));
 
-                entity.Property(e => e.GameName)
-                    .IsRequired()
-                    .HasMaxLength(100);
             });
-
+            /*
             modelBuilder.Entity<GamesPlatform>(entity =>
             {
                 entity.HasKey(e => e.GamePlatformId)
@@ -145,8 +137,8 @@ namespace SmokeApp_Storage.Models
                     .WithMany(p => p.GamesPlatforms)
                     .HasForeignKey(d => d.PlatformId)
                     .HasConstraintName("FK__GamesPlat__Platf__6C190EBB");
-            });
-
+            });*/
+            /*
             modelBuilder.Entity<Platform>(entity =>
             {
                 entity.Property(e => e.PlatformId).HasColumnName("PlatformID");
@@ -154,7 +146,7 @@ namespace SmokeApp_Storage.Models
                 entity.Property(e => e.PlatformName)
                     .IsRequired()
                     .HasMaxLength(40);
-            });
+            });*/
 
             modelBuilder.Entity<Subscription>(entity =>
             {
