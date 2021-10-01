@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SmokeApp_Domain.Models;
+using SmokeApp_Domain.ViewModels;
 using SmokeApp_Storage.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -65,6 +66,15 @@ namespace SmokeAppApi.Controllers {
             }
             return u1;
         }
+
+        //Get a list of ViewGame that a user is subscribed to
+        [HttpGet("subscriptions/{username}")]
+        public async Task<List<ViewGame>> GetSubscriptions(string username) {
+            Task<List<ViewGame>> games = _userRepo.UserSubscribedGamesAsync(username);
+            List<ViewGame> games1 = await games;
+            return games1;
+        }
+
         // GET: UserController/Create
         public ActionResult Create() {
             return View();
